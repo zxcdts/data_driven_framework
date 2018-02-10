@@ -2,7 +2,8 @@
 
 from openpyxl import *
 from openpyxl.styles import Font
-import time
+from ProjectVar.var import test_data_excel_path
+from FormatTime import date_time_chinese
 
 
 class ParseExcel(object):
@@ -52,6 +53,9 @@ class ParseExcel(object):
 
     # 获取正在操作sheet中的所有列对象
     def get_all_cols(self):
+        ''' cols = []
+        for col in self.sheet.iter_rows:
+            cols.append(col) '''
         return list(self.sheet.columns)
 
     # 获取某一个行对象
@@ -77,8 +81,7 @@ class ParseExcel(object):
 
     # 给某个单元格写入当前时间
     def write_cell_current_time(self, row_no, col_no):
-        strf_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-        self.sheet.cell(row=row_no, column=col_no).value = strf_time
+        self.sheet.cell(row=row_no, column=col_no).value = date_time_chinese()
         self.workbook.save(self.excel_file_path)
 
     # 保存对所有单元格的修改
@@ -88,7 +91,7 @@ class ParseExcel(object):
 if __name__ == '__main__':
     # 测试所有的方法
     print '111'
-    excle = ParseExcel('/Users/zhangbingwei/workspace/data_driven_framework/util/126邮箱联系人.xlsx')
+    excle = ParseExcel(test_data_excel_path)
     sheet1 = excle.get_default_by_name(u'126账号')
     sheet2 = excle.get_default_by_index(0)
     print sheet1, sheet2
@@ -97,6 +100,7 @@ if __name__ == '__main__':
     excle.set_sheet_by_name(u'联系人')
     print excle.get_default_name()
     rows = excle.get_all_cols()
+    print rows
     print excle.get_single_col(1)
     print excle.get_single_row(1)
     excle.write_cell_content(1, 1, u'我就是')

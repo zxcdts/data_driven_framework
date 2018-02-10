@@ -8,6 +8,16 @@
           <option value="PBS_Dynamic.admin.*" />
           <option value="platform" />
           <option value="sys" />
+          <option value="time" />
+          <option value="util.Excel.openpyxl" />
+          <option value="util.Excel.load_workbook" />
+          <option value="util.Excel.object" />
+          <option value="util.Excel.list" />
+          <option value="util.ObjectMap.Exception" />
+          <option value="util.ParsePageObjectRepository.object" />
+          <option value="util.ParsePageObjectRepository.ConfigParser" />
+          <option value="ConfigParser" />
+          <option value="util.ParsePageObjectRepository.dict" />
         </list>
       </option>
     </inspection_tool>
