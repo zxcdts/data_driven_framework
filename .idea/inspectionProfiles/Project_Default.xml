@@ -18,6 +18,11 @@
           <option value="util.ParsePageObjectRepository.ConfigParser" />
           <option value="ConfigParser" />
           <option value="util.ParsePageObjectRepository.dict" />
+          <option value="os" />
+          <option value="Action.login.selenium" />
+          <option value="TestScript.TestContact.reload" />
+          <option value="TestScript.TestContact.str" />
+          <option value="TestScript.TestContact.enumerate" />
         </list>
       </option>
     </inspection_tool>

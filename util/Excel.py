@@ -16,11 +16,11 @@ class ParseExcel(object):
 
     # 通过索引（序号）设置需要操作的sheet
     def set_sheet_by_index(self, sheet_index):
-        self.sheet = self.get_default_by_index(sheet_index)
+        self.sheet = self.get_sheet_by_index(sheet_index)
 
     # 通过名称设置需要操作的sheet
     def set_sheet_by_name(self, name):
-        self.sheet = self.get_default_by_name(name)
+        self.sheet = self.get_sheet_by_name(name)
 
     # 获取当前操作的sheet的title名称
     def get_default_name(self):
@@ -28,12 +28,12 @@ class ParseExcel(object):
         return self.sheet.title
 
     # 通过名称获取操作的sheet
-    def get_default_by_name(self, name):
+    def get_sheet_by_name(self, name):
         self.sheet = self.workbook.get_sheet_by_name(name)
         return self.sheet
 
     # 通过序号获取操作的sheet
-    def get_default_by_index(self, sheet_index):
+    def get_sheet_by_index(self, sheet_index):
         sheets_name = self.workbook.get_sheet_names()
         self.sheet = self.workbook.get_sheet_by_name(sheets_name[sheet_index])
         return self.sheet
@@ -92,8 +92,8 @@ if __name__ == '__main__':
     # 测试所有的方法
     print '111'
     excle = ParseExcel(test_data_excel_path)
-    sheet1 = excle.get_default_by_name(u'126账号')
-    sheet2 = excle.get_default_by_index(0)
+    sheet1 = excle.get_sheet_by_name(u'126账号')
+    sheet2 = excle.get_sheet_by_index(0)
     print sheet1, sheet2
     print excle.get_max_row_no(), excle.get_max_col_no()
     # excle.set_sheet_by_index(1)
